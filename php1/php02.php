@@ -23,7 +23,7 @@
 </head>
 <body>
 	<?php
-	session_start();
+		session_start();
 
 		if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
 

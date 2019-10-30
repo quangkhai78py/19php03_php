@@ -13,53 +13,53 @@
  <body>
 
     <?php
-    session_start();
+        session_start();
 
-    $error1 = '';
-    $error2 = '';
-    $error3 = '';
-    $error4 = '';
-    $error5 = '';
-   
-    if (isset($_POST['submit'])) {
-            if (!empty($_POST['name'])) {
-                $name = $_POST['name'];
-            }else{
-                $error1 = 'vui lòng nhập tên của bạn';
-            }
-
-            if (!empty($_POST['gender'])) {
-                $gender = $_POST['gender'];
-                
-            }else{
-                $error2 = 'vui lòng chọn giới tính của bạn';
-            }
-
-            if (!empty($_POST['address'])) {
-                $address = $_POST['address'];
-            }else{
-                $error3 = 'vui lòng chọn thành phố của bạn';
-            }
-
-            if (!empty($_POST['email'])) {
-                if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                     $error4 = 'vui lòng chọn nhập đúng email email của bạn';
+        $error1 = '';
+        $error2 = '';
+        $error3 = '';
+        $error4 = '';
+        $error5 = '';
+       
+        if (isset($_POST['submit'])) {
+                if (!empty($_POST['name'])) {
+                    $name = $_POST['name'];
                 }else{
-                    $email = $_POST['email'];
-                    $_SESSION['email'] = $email;
+                    $error1 = 'vui lòng nhập tên của bạn';
                 }
-            }else{
-                $error4 = 'vui lòng chọn nhập email của bạn';
-            }
 
-            if (!empty($_POST['birthday'])) {
-                $birthday = $_POST['birthday'];
-            }else{
-                $error5 = 'vui lòng chọn nhập Ngày sinh của bạn';
+                if (!empty($_POST['gender'])) {
+                    $gender = $_POST['gender'];
+                    
+                }else{
+                    $error2 = 'vui lòng chọn giới tính của bạn';
+                }
+
+                if (!empty($_POST['address'])) {
+                    $address = $_POST['address'];
+                }else{
+                    $error3 = 'vui lòng chọn thành phố của bạn';
+                }
+
+                if (!empty($_POST['email'])) {
+                    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                         $error4 = 'vui lòng chọn nhập đúng email email của bạn';
+                    }else{
+                        $email = $_POST['email'];
+                        $_SESSION['email'] = $email;
+                    }
+                }else{
+                    $error4 = 'vui lòng chọn nhập email của bạn';
+                }
+
+                if (!empty($_POST['birthday'])) {
+                    $birthday = $_POST['birthday'];
+                }else{
+                    $error5 = 'vui lòng chọn nhập Ngày sinh của bạn';
+                }
+              
             }
-          
-        }
-    ?>
+        ?>
     <div style="width: 50%; margin-left: 350px; margin-top: 50px;">
         <form style="width: 50%;" method="post" action="<?= isset($_POST['submit']) && !empty($name) && !empty($gender) && !empty($email) && !empty($birthday) && !empty($address) ? 'php02.php' : '' ?>">
             <div class="form-group">
